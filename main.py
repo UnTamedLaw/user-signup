@@ -71,18 +71,12 @@ def validate():
 
   
     if not username_error and not password_error and not email_error and not verification_error:
-        return redirect('/success')
+        return render_template('/success.html', Name = userName )
     else: 
         return render_template('form_inputs.html', username_error=username_error, password_error =password_error,
         email_error=email_error, verification_error = verification_error,
         userName = userName,
         email = email)
 
-
-
-@app.route('/success', methods=['GET'])
-def success():
-  
-    return render_template('success.html')
 
 app.run()
